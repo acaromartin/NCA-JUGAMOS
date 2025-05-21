@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cuaderno de Bitácora - Prácticas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4fdf4;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1, h2 {
+      color: #2e7d32;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      border: 1px solid #a5d6a7;
+      padding: 0.5rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    textarea {
+      width: 100%;
+      height: 60px;
+      border: none;
+      resize: none;
+      padding: 0.5rem;
+      font-family: inherit;
+      background-color: #e8f5e9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cuaderno de Bitácora</h1>
+
+  <script>
+    const horas = ["08:30", "09:30", "10:30", "11:30", "12:30", "13:30", "14:30"];
+    const dias = ["Miércoles 21", "Jueves 22", "Viernes 23"];
+
+    function crearTabla(dia) {
+      let html = `<h2>${dia}</h2><table><tr><th>Hora</th><th>Actividad</th></tr>`;
+      for (let hora of horas) {
+        html += `<tr><td>${hora}</td><td><textarea placeholder="Escriba aquí lo realizado"></textarea></td></tr>`;
+      }
+      html += `</table>`;
+      return html;
+    }
+
+    document.write(dias.map(crearTabla).join(""));
+  </script>
+</body>
+</html>
