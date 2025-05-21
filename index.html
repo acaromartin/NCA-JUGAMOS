@@ -5,53 +5,123 @@
   <title>Cuaderno de Bitácora - Prácticas</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4fdf4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0fdf4;
       margin: 0;
       padding: 2rem;
     }
-    h1, h2 {
+    h1 {
+      text-align: center;
+      color: #1b5e20;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
       color: #2e7d32;
+      font-size: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .dia {
+      margin: 1rem 0;
+      border: 2px solid #81c784;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .titulo-dia {
+      background-color: #66bb6a;
+      color: white;
+      padding: 1rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: bold;
+    }
+    .contenido-dia {
+      display: none;
+      background: #e8f5e9;
+      padding: 1rem;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 2rem;
     }
     th, td {
       border: 1px solid #a5d6a7;
       padding: 0.5rem;
       text-align: left;
-      vertical-align: top;
     }
-    textarea {
-      width: 100%;
-      height: 60px;
-      border: none;
-      resize: none;
-      padding: 0.5rem;
-      font-family: inherit;
-      background-color: #e8f5e9;
+    td.descripcion {
+      height: 50px;
+      background-color: #ffffff;
     }
   </style>
 </head>
 <body>
   <h1>Cuaderno de Bitácora</h1>
+  <div class="intro">
+    En este cuaderno de bitácora documentamos nuestras actividades del proyecto de clase: crear un juego que funcione en red local usando Debian, guardar datos en una base de datos, y desarrollar una página funcional que actúe como registro diario.
+  </div>
+
+  <div class="dia">
+    <div class="titulo-dia" onclick="toggle('miercoles')">Miércoles 21</div>
+    <div class="contenido-dia" id="miercoles">
+      <table>
+        <tr><th>Hora</th><th>Actividad</th></tr>
+        <tr><td>08:30</td><td class="descripcion"></td></tr>
+        <tr><td>09:30</td><td class="descripcion"></td></tr>
+        <tr><td>10:30</td><td class="descripcion"></td></tr>
+        <tr><td>11:30</td><td class="descripcion"></td></tr>
+        <tr><td>12:30</td><td class="descripcion"></td></tr>
+        <tr><td>13:30</td><td class="descripcion"></td></tr>
+        <tr><td>14:30</td><td class="descripcion"></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="dia">
+    <div class="titulo-dia" onclick="toggle('jueves')">Jueves 22</div>
+    <div class="contenido-dia" id="jueves">
+      <table>
+        <tr><th>Hora</th><th>Actividad</th></tr>
+        <tr><td>08:30</td><td class="descripcion"></td></tr>
+        <tr><td>09:30</td><td class="descripcion"></td></tr>
+        <tr><td>10:30</td><td class="descripcion"></td></tr>
+        <tr><td>11:30</td><td class="descripcion"></td></tr>
+        <tr><td>12:30</td><td class="descripcion"></td></tr>
+        <tr><td>13:30</td><td class="descripcion"></td></tr>
+        <tr><td>14:30</td><td class="descripcion"></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="dia">
+    <div class="titulo-dia" onclick="toggle('viernes')">Viernes 23</div>
+    <div class="contenido-dia" id="viernes">
+      <table>
+        <tr><th>Hora</th><th>Actividad</th></tr>
+        <tr><td>08:30</td><td class="descripcion"></td></tr>
+        <tr><td>09:30</td><td class="descripcion"></td></tr>
+        <tr><td>10:30</td><td class="descripcion"></td></tr>
+        <tr><td>11:30</td><td class="descripcion"></td></tr>
+        <tr><td>12:30</td><td class="descripcion"></td></tr>
+        <tr><td>13:30</td><td class="descripcion"></td></tr>
+        <tr><td>14:30</td><td class="descripcion"></td></tr>
+      </table>
+    </div>
+  </div>
 
   <script>
-    const horas = ["08:30", "09:30", "10:30", "11:30", "12:30", "13:30", "14:30"];
-    const dias = ["Miércoles 21", "Jueves 22", "Viernes 23"];
-
-    function crearTabla(dia) {
-      let html = `<h2>${dia}</h2><table><tr><th>Hora</th><th>Actividad</th></tr>`;
-      for (let hora of horas) {
-        html += `<tr><td>${hora}</td><td><textarea placeholder="Escriba aquí lo realizado"></textarea></td></tr>`;
-      }
-      html += `</table>`;
-      return html;
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
     }
-
-    document.write(dias.map(crearTabla).join(""));
   </script>
 </body>
 </html>
