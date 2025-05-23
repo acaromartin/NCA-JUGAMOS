@@ -10,15 +10,6 @@
       margin: 0;
       padding: 2rem;
     }
-    h1 {
-      text-align: center;
-      color: #1b5e20;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
     .intro {
       text-align: center;
       margin-bottom: 2rem;
@@ -92,12 +83,27 @@
         width: 100%;
       }
     }
+
+  h1 {
+  text-align: center;
+  color: #1b5e20;
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
   </style>
 </head>
 <body>
   <h1>Cuaderno de Bitácora</h1>
   <div class="intro">
     En este cuaderno de bitácora documentamos nuestras actividades del proyecto de clase: crear un juego que funcione en red local usando Debian, guardar datos en una base de datos, y desarrollar una página funcional que actúe como registro diario.
+  <div class="evidencia-grid">
+ <div class="evidencia-item"><p>Nuestro juego "Widelands"</p><img src="Imagenes/WIDELANDS.jpeg" alt="Evidencia 1"></div>
+
+  </div>
   </div>
 
   <!-- Miércoles 21 -->
